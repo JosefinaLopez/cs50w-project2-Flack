@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <main>
+            <style>
+                body {
+                    background-image: none;
+                    background-color: #4a0d79;
+                }
+            </style>
+            <div class="grid-container">
+                <div class="sidebar">
+                    <h3>SKYCHAT</h3>
+            
+                    <!-- Seccion de Busqueda de Canales -->
+                    <form class='container-search'>
+                        <div class="search">
+                            <input type="text" id='search' style='width: 250px;' placeholder='Search Canal'>
+                        </div>
+                        <div class="seachxd">
+                            <a href="" id='searc'>
+                                <button type="button" class='eee'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="30" fill="currentColor" class="bi bi-search"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </form>
+            
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-dark" id="addcanal" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Crear Nuevo Canal
+                    </button>
+            
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 style='color: #1E0035;' class="modal-title fs-5" id="staticBackdropLabel">Nuevo Canal</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="formcanal">
+                                        <input type="text" id='canalname' style='width: 100%;' class="form-control" autofocus
+                                            placeholder="Write a name" aria-label="Canal">
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" id='addcanals' class="btn btn-dark">Crear Canal</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Lista de Canales -->
+                    <h4>Canales</h4>
+                    <div id='canalnamelist'>
+                        <!-- Contenido de la barra lateral -->
+                        <ul id="canals">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Aqui Heredara los chats abiertooos-->
+                {%block main%}
+                {%endblock%}
+            </div>
+        </main>
+        <script src="/static/canal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>

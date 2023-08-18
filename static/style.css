@@ -1,0 +1,211 @@
+body{
+    background-image: url(/static/img/744288.png);
+}
+main {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Un fondo semitransparente como ejemplo */
+    z-index: 9999;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente el contenido */
+    align-items: center;
+    margin-top:12rem;
+}
+.container-buttom{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+#uwu{
+    gap: 25px;
+    padding: 30px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    /* Columna de la barra lateral de 250px y columna flexible para el contenido */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar {
+    background-color: #000000;
+    /* Color de fondo de la barra lateral */
+    color: #fff;
+    /* Color del texto en la barra lateral */
+    padding: 20px;
+}
+.sidebar h3{
+    text-align: center;
+    margin: 26px;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.content {
+    padding: 0px;
+    background-color:#1E0035;
+    
+}
+#search{
+        width: 30vh;
+        border-radius: 30px;
+        border-style: none;
+        text-align: center;
+}
+.search{
+        display: flex;
+        justify-content: space-between;
+        width: 76%;
+        margin-left: 1px;
+}
+.seachxd{
+            background-color: rgb(255, 255, 255);
+            width: 2rem;
+            display: flex;
+            justify-content: center;
+            border-radius: 30px;
+            margin: 1px;
+}
+#addcanal{
+        margin: 25px;
+        border-radius: 30px;
+        background: #1E0035;
+        width: 200px;
+        margin-left: -3px;
+}
+#formwrite{
+    flex-wrap: wrap;
+    display: flex;
+    gap: 15px;
+    
+}
+#addcanal:hover{
+    background-color: #57287a;
+}
+h4{
+        background:#1E0035;
+        text-align: center;
+        border-radius: 5px;
+        width: 250px;
+        margin-left: -21px;
+}
+.barra{
+        color: white;
+            gap: 5px;
+            padding: 13px;
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+}
+.options {
+    list-style: none;
+    padding-left: 0;
+    overflow-y: auto;
+}
+
+.option {
+    padding: .5rem;
+    border-radius: .325rem;
+}
+
+.option:hover {
+    background-color:#1E0035;
+    user-select: none;
+}
+.container-chat{
+        height: 73%;
+        margin: 0;
+        overflow-y: scroll;
+}
+.container-writ{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+#join_username{
+    color: whitesmoke;
+    justify-content: center;
+    text-align: center;
+}
+#canalname , #chatwrite, #username{ 
+    width: 550px;
+    border-radius: 30px;
+}
+#xd{
+    border-radius: 30px;
+}
+/*region de chats*/
+.chat-bubble {
+    margin: 20px;
+    background-color: white;
+    color:black;
+    border-radius: 25px;
+    padding: 10px;
+    max-width: 450px;
+    max-height: 100px;
+    word-wrap: break-word;
+    overflow: hidden;
+    position: relative;
+}
+/* Clase para alinear a la derecha si es el usuario actual */
+.chat-bubble-right {
+    left: auto;
+/* right: -35rem;*/
+    text-align: left;
+}
+.eee{
+    background-color: #380964;
+    color: white;
+    border-radius: 30px;
+    max-width: 100%;
+}
+.container-search{
+        display: flex;
+        gap: 32px;
+        justify-content: space-between;
+}
+/* Clase para alinear a la izquierda para otros usuarios */
+.chat-bubble-left {
+    top: 15px;
+    left: 35rem;
+    background-color: #d4b2ff;
+/* text-align: right;*/
+}
+.username {
+    font-weight: bold;
+}
+
+.message {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.time {
+    position: absolute;
+    bottom: 9px;
+    right: 17px;
+    font-size: 12px;
+    color:gray;
+}

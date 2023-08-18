@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="card" id='uwu'>
+                <h1 style='color: blueviolet;'>Welcome to SkyChat</h1>
+                <form id="form">
+                    <input type="text" id='username' style='width: 100%;' class="form-control" autofocus placeholder="Write a Username"
+                        aria-label="Username">
+                    <div class="container-buttom">
+                        <!--a href="./chats.html">
+                            <button class="btn btn-dark" type="submit">Ir a Sala de Chat</button>
+                        </a-->
+                        <!-- Button trigger modal -->
+                        <button type='submit' class="btn btn-dark" id="addcanal">
+                            Registrar Usuario
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="/static/index.js"></script>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+</html>
