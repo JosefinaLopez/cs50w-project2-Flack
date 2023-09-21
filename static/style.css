@@ -1,6 +1,7 @@
-body{
+body {
     background-image: url(/static/img/744288.png);
 }
+
 main {
     position: fixed;
     top: 0;
@@ -11,19 +12,22 @@ main {
     /* Un fondo semitransparente como ejemplo */
     z-index: 9999;
 }
-.container{
+
+.container {
     display: flex;
     justify-content: center;
     /* Centra horizontalmente el contenido */
     align-items: center;
-    margin-top:12rem;
+    margin-top: 12rem;
 }
-.container-buttom{
+
+.container-buttom {
     display: flex;
     justify-content: center;
     margin-top: 15px;
 }
-#uwu{
+
+#uwu {
     gap: 25px;
     padding: 30px;
 }
@@ -48,10 +52,12 @@ main {
     /* Color del texto en la barra lateral */
     padding: 20px;
 }
-.sidebar h3{
+
+.sidebar h3 {
     text-align: center;
     margin: 26px;
 }
+
 .sidebar ul {
     list-style: none;
     padding: 0;
@@ -65,60 +71,68 @@ main {
 
 .content {
     padding: 0px;
-    background-color:#1E0035;
-    
+    background-color: #1E0035;
+
 }
-#search{
-        width: 30vh;
-        border-radius: 30px;
-        border-style: none;
-        text-align: center;
+
+#search {
+    width: 30vh;
+    border-radius: 30px;
+    border-style: none;
+    text-align: center;
 }
-.search{
-        display: flex;
-        justify-content: space-between;
-        width: 76%;
-        margin-left: 1px;
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    width: 76%;
+    margin-left: 1px;
 }
-.seachxd{
-            background-color: rgb(255, 255, 255);
-            width: 2rem;
-            display: flex;
-            justify-content: center;
-            border-radius: 30px;
-            margin: 1px;
+
+.seachxd {
+    background-color: rgb(255, 255, 255);
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+    margin: 1px;
 }
-#addcanal{
-        margin: 25px;
-        border-radius: 30px;
-        background: #1E0035;
-        width: 200px;
-        margin-left: -3px;
+
+#addcanal {
+    margin: 25px;
+    border-radius: 30px;
+    background: #1E0035;
+    /*width: 200px;
+        margin-left: -3px;*/
 }
-#formwrite{
+
+#formwrite {
     flex-wrap: wrap;
     display: flex;
     gap: 15px;
-    
 }
-#addcanal:hover{
+
+#addcanal:hover {
     background-color: #57287a;
 }
-h4{
-        background:#1E0035;
-        text-align: center;
-        border-radius: 5px;
-        width: 250px;
-        margin-left: -21px;
+
+h4 {
+    background: #1E0035;
+    text-align: center;
+    border-radius: 5px;
+    width: 250px;
+    margin-left: -21px;
 }
-.barra{
-        color: white;
-            gap: 5px;
-            padding: 13px;
-            display: flex;
-            justify-content: space-between;
-            background-color: black;
+
+.barra {
+    color: white;
+    gap: 5px;
+    padding: 13px;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
 }
+
 .options {
     list-style: none;
     padding-left: 0;
@@ -131,36 +145,51 @@ h4{
 }
 
 .option:hover {
-    background-color:#1E0035;
+    background-color: #1E0035;
     user-select: none;
 }
-.container-chat{
-        height: 73%;
-        margin: 0;
-        overflow-y: scroll;
+
+.container-chat {
+    height: 62%;
+    top: -4rem;
+    position: relative;
+    margin: 0;
+    overflow-y: scroll;
 }
-.container-writ{
+
+.container-writ {
     display: flex;
     justify-content: center;
     gap: 15px;
+    position: relative;
+    top: 33rem;
+    z-index: 9;
+    background: #000000a1;
+    padding: 1rem;
 }
-#join_username{
+
+#join_username {
     color: whitesmoke;
     justify-content: center;
     text-align: center;
 }
-#canalname , #chatwrite, #username{ 
+
+#canalname,
+#chatwrite,
+#username {
     width: 550px;
     border-radius: 30px;
 }
-#xd{
+
+#xd {
     border-radius: 30px;
 }
+
 /*region de chats*/
 .chat-bubble {
     margin: 20px;
     background-color: white;
-    color:black;
+    color: black;
     border-radius: 25px;
     padding: 10px;
     max-width: 450px;
@@ -169,30 +198,35 @@ h4{
     overflow: hidden;
     position: relative;
 }
+
 /* Clase para alinear a la derecha si es el usuario actual */
 .chat-bubble-right {
     left: auto;
-/* right: -35rem;*/
+    /* right: -35rem;*/
     text-align: left;
 }
-.eee{
+
+.eee {
     background-color: #380964;
     color: white;
     border-radius: 30px;
     max-width: 100%;
 }
-.container-search{
-        display: flex;
-        gap: 32px;
-        justify-content: space-between;
+
+.container-search {
+    display: flex;
+    gap: 32px;
+    justify-content: space-between;
 }
+
 /* Clase para alinear a la izquierda para otros usuarios */
 .chat-bubble-left {
     top: 15px;
     left: 35rem;
     background-color: #d4b2ff;
-/* text-align: right;*/
+    /* text-align: right;*/
 }
+
 .username {
     font-weight: bold;
 }
@@ -207,5 +241,116 @@ h4{
     bottom: 9px;
     right: 17px;
     font-size: 12px;
-    color:gray;
+    color: gray;
+}
+
+#salirx {
+    position: relative;
+    top: 14rem;
+    left: 3rem;
+
+}
+
+/* Media query para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    .grid-container {
+        /* Modifica el estilo de '.grid-container' para teléfonos aquí */
+        grid-template-columns: 0px 1fr;
+        /* Cambia a una sola columna */
+    }
+
+    .sidebar {
+        /* Modifica el estilo de '.sidebar' para teléfonos aquí */
+        padding: 5px;
+        /* Ajusta el relleno */
+    }
+
+    .chat-bubble {
+        max-width: 250px;
+    }
+
+    .chat-bubble-right {
+        right: 0;
+    }
+
+    .chat-bubble-left {
+        left: 18rem;
+    }
+
+    .container-chat {
+        height: 50%;
+        top: -4rem;
+    }
+
+    .container-writ {
+        top: 28rem;
+    }
+
+    #canalname,
+    #chatwrite,
+    #username {
+        width: 350px;
+    }
+
+    /* Añade más estilos específicos para tablets si es necesario */
+}
+
+/* Media query para pantallas pequeñas (teléfonos) */
+@media (max-width: 480px) {
+    .grid-container {
+        /* Modifica el estilo de '.grid-container' para teléfonos aquí */
+        grid-template-columns: 1fr;
+        /* Cambia a una sola columna */
+    }
+
+    .content {
+        z-index: 9;
+    }
+
+    .chat-bubble {
+        max-width: 250px;
+    }
+
+    .chat-bubble-right {
+        right: 0;
+    }
+
+    .chat-bubble-left {
+        left: 6rem;
+    }
+
+    .container-chat {
+        height: 63%;
+        top: -5rem;
+    }
+
+    .container-writ {
+        top: 34rem;
+    }
+
+    #canalname,
+    #chatwrite,
+    #username {
+        width: 195px;
+    }
+
+    #search {
+        position: relative;
+        left: 3rem;
+    }
+
+    .sidebar {
+        text-align: center;
+    }
+
+    .sidebar>h4 {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #salirx {
+        left: 0;
+    }
+
+    /* Añade más estilos específicos para teléfonos si es necesario */
 }

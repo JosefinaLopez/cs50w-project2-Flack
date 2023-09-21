@@ -44,10 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Canal seleccionado
     var canal = localStorage.getItem("CanalSeleccionado");
     let username = localStorage.getItem("username");
+    let Join = document.getElementById("Join");
     socket.emit("Join_Channel", { canalx: canal, username : username});
     // Evento 'join'
     socket.on('Join_Channel', data => {
-        alert( data.username + " " + "Ha entrado al Canal"+ " " + canal);
+        const li = document.createElement("li");
+        li.textContent = data.username + " " + "Ha entrado al Canal"+ " " + canal;
+        
         fetchChannelInfo(canal);
 
     });
@@ -88,16 +91,23 @@ document.addEventListener('DOMContentLoaded', () => {
     socket.emit('Lista de Mensajes', {
         canal: canal
     });
-
     document.getElementById('salir').addEventListener("click",event =>{
         let username = localStorage.getItem("username");
         socket.emit("Leave_Channel",{'canal': canal});
         localStorage.removeItem("CanalSeleccionado")
+        mostrarSidebar();
         window.location.href = "/Channels/" + username; 
     });
 
+    function mostrarSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        if (sidebar) {
+            sidebar.style.display = ''; // Restaura el valor original del estilo (por ejemplo, 'block' o 'inline')
+        }
+    }
     // Evento click en 'xd'
     document.getElementById('xd').addEventListener("click", event => {
+        event.preventDefault();
         const user_ms = document.getElementById("join_usernames").innerText;
         const msj = document.getElementById("chatwrite").value;
         var canal = localStorage.getItem("CanalSeleccionado");
@@ -119,4 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Escuchar el evento "Listar Mensajes" del servidor
     socket.on("Listar Mensajes", renderMessage);
     socket.on("Lista de Mensajes", renderMessage);
+
+    function ocultarSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.style.display = 'none';
+
+    }
+    ocultarSidebar();
 });

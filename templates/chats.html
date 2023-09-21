@@ -7,17 +7,23 @@
         <h6 id='integrantes'></h6>
         <button type="button" class='eee' id='salir'>Salir</button>
     </div>
-    <!-- Seccion de los mensajes -->
-    <div class="container-chat" id='chat-list'>
-        
-    </div>
     <!-- Aqui esta el textbox donde se escribe el mensaje xd -->
     <div class="container-writ">
         <form id="formwrite">
-        <h6 id='join_usernames' style='color: white;'></h6><input type="text" id='chatwrite' class="form-control" autofocus placeholder="Escribe Algo Aqui..."
-                aria-label="Canal">
-                <button class="btn btn-dark" id='xd' type="button">Enviar</button>
+            <h6 id='join_usernames' style='color: white;'></h6><input type="text" id='chatwrite' class="form-control"
+                autofocus placeholder="Escribe Algo Aqui..." aria-label="Canal">
+            <input type='button' value='Enviar' id='xd'>
+
         </form>
+    </div>
+    <!-- Seccion de los mensajes -->
+    <div class="container-chat" id='chat-list'>
+        <!--Notificacion de que entraron xd-->
+        <div class="Join" id='Join'>
+            <ul>
+
+            </ul>
+        </div>
     </div>
 </div>
 <script src="/static/chat.js"></script>
