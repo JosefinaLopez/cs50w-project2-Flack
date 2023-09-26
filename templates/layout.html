@@ -9,14 +9,22 @@
             integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
         <link rel="stylesheet" href="/static/style.css">
         <link rel="shortcut icon" href="/static/img/loto_1_.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     </head>
-
     <body>
         <main>
             <style>
                 body {
                     background-image: none;
                     background-color: #4a0d79;
+                }
+
+                #menu {
+                    color: white;
+                    left: 10rem;
+                    top: 0rem;
+                    position: relative;
+                    font-size: 35px;
                 }
 
             </style>
@@ -89,8 +97,19 @@
                 {%endblock%}
             </div>
         </main>
+        <script>
+            function menu() {
+                const sidebar = document.getElementById('sidebar');
+                if (sidebar) {
+                    if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+                        sidebar.style.display = 'block';
+                    } else {
+                        sidebar.style.display = 'none';
+                    }
+                }
+            }
+        </script>
         <script src="/static/canal.js"></script>
-        <script src='/static/chat.js'></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"

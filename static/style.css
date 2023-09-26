@@ -12,7 +12,9 @@ main {
     /* Un fondo semitransparente como ejemplo */
     z-index: 9999;
 }
-
+.sidebar{
+    display: block;
+}
 .container {
     display: flex;
     justify-content: center;
@@ -150,7 +152,7 @@ h4 {
 }
 
 .container-chat {
-    height: 62%;
+    height: 73%;
     top: -4rem;
     position: relative;
     margin: 0;
@@ -162,7 +164,7 @@ h4 {
     justify-content: center;
     gap: 15px;
     position: relative;
-    top: 33rem;
+    top: 31rem;
     z-index: 9;
     background: #000000a1;
     padding: 1rem;
@@ -197,6 +199,13 @@ h4 {
     word-wrap: break-word;
     overflow: hidden;
     position: relative;
+}
+
+.chat-bubble>img {
+
+    border-radius: 30px;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 /* Clase para alinear a la derecha si es el usuario actual */
@@ -303,6 +312,10 @@ h4 {
         /* Cambia a una sola columna */
     }
 
+    .sidebar {
+        display: block;
+    }
+
     .content {
         z-index: 9;
     }
@@ -320,8 +333,8 @@ h4 {
     }
 
     .container-chat {
-        height: 63%;
-        top: -5rem;
+        height: 50%;
+        top: -8rem;
     }
 
     .container-writ {
@@ -331,14 +344,18 @@ h4 {
     #canalname,
     #chatwrite,
     #username {
-        width: 195px;
+        width: 180px;
     }
 
     #search {
         position: relative;
+        width: 250px;
+        padding: 0.4rem;
         left: 3rem;
     }
-
+    .search{
+        margin-left: -20px;
+    }
     .sidebar {
         text-align: center;
     }
@@ -351,6 +368,8 @@ h4 {
     #salirx {
         left: 0;
     }
-
+    .container-search{
+        justify-content: center;
+    }
     /* Añade más estilos específicos para teléfonos si es necesario */
 }

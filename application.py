@@ -4,6 +4,8 @@ import uuid
 from flask import Flask, request, render_template, jsonify,session
 from flask_session import Session
 from flask_socketio import SocketIO, emit, join_room, leave_room
+from werkzeug.utils import secure_filename  #! esto xd garantizara un nombre de archivo seguro
+
 
 app = Flask(__name__)
 app.debug = True
@@ -13,6 +15,9 @@ socketio = SocketIO(app,apcors_allowed_origins="*")
 #?Configurar Session
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
+UPLOAD_FOLDER = 'static/img/chat'  # Carpeta 
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}  # Extensiones permitidas
 Session(app)
 
 
@@ -44,6 +49,31 @@ def index():
         print(user_id)
     return render_template("index.html")
 
+# Función para verificar si la extensión del archivo es válida
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@app.route('/upload', methods=['POST', 'GET'])
+def upload_file():
+    if 'image' not in request.files:
+        return "No se seleccionó ningún archivo de imagen."
+    
+    file = request.files['image']
+    
+    if file.filename == '':
+        return "No se seleccionó ningún archivo de imagen."
+    
+    if file and allowed_file(file.filename):
+        if not os.path.exists(app.config['UPLOAD_FOLDER']):
+            os.makedirs(app.config['UPLOAD_FOLDER'])
+        
+        filename = secure_filename(file.filename)
+        
+        # Guarda el archivo en la carpeta de destino
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        return '/'+ UPLOAD_FOLDER +'/' +filename
+    else:
+        return "Formato de archivo no válido. Se permiten solo archivos PNG, JPG o JPEG."
 
 @socketio.on('connect')
 def handle_connect():

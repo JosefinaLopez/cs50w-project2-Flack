@@ -3,7 +3,7 @@
 <div class="content">
     <!-- Contenido principal de la página o parte superior de chat -->
     <div class="barra">
-        <h6 id='canal'></h6>
+        <h6 id='canal' onclick='menu'></h6>
         <h6 id='integrantes'></h6>
         <button type="button" class='eee' id='salir'>Salir</button>
     </div>
@@ -12,18 +12,44 @@
         <form id="formwrite">
             <h6 id='join_usernames' style='color: white;'></h6><input type="text" id='chatwrite' class="form-control"
                 autofocus placeholder="Escribe Algo Aqui..." aria-label="Canal">
-            <input type='button' value='Enviar' id='xd'>
-
+            <input type='button' value='Enviar' id='xddd' class="btn btn-dark">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                img
+            </button>
         </form>
     </div>
-    <!-- Seccion de los mensajes -->
-    <div class="container-chat" id='chat-list'>
-        <!--Notificacion de que entraron xd-->
-        <div class="Join" id='Join'>
-            <ul>
-
-            </ul>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 style='color: #1E0035;' class="modal-title fs-5" id="staticBackdropLabel">Agregar Imagen</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form id="formimg" method='post' enctype="multipart/form-data">
+                    <input type="file" name="image" id="imageInput" accept=".jpg, .jpeg, .png">
+                    <button type='button' class="btn btn-dark" id="xd" >Enviar Imagen</button>
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
+    </div>
+    <!-- Seccion de los mensajes -->
+
+    </ul>
+    <div class="container-chat">
+        <!--Notificacion de que-->
+        <div class="chatsc" id='chat-list'>
+            <ul id='Join' style='color: white; text-align: center; list-style: none;'></ul>
+
+        </div>
+
     </div>
 </div>
 <script src="/static/chat.js"></script>

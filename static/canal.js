@@ -45,10 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function ocultarSidebar() {
-        const sidebar = document.querySelector('.sidebar');
+        sidebar = document.querySelector(".sidebar");
         sidebar.style.display = 'none';
-
     }
+    function mostrarSidebar() {
+        sidebar = document.querySelector(".sidebar");
+        sidebar.style.display = 'block';
+    }
+
     var existentes = []
     //Recolecta la info del servidor
     socket.on('Lista Canal', data => {
@@ -65,19 +69,24 @@ document.addEventListener('DOMContentLoaded', () => {
             existentes.push(canal)
 
             li.addEventListener("click", (event) => {
-                localStorage.setItem("CanalSeleccionado", canal);
+                let canalex = localStorage.setItem("CanalSeleccionado", canal);
                 // Realizar alguna acción al hacer clic en el canal 
                 event.preventDefault();
                 console.log("Canal seleccionado: " + canal);
                 window.location.href = '/Channels/Chat/' + canal;
-                ocultarSidebar();
 
             });
             canallist.appendChild(li);
+            let canalex = localStorage.getItem("CanalSeleccionado", canal);
 
+            if (canalex) {
+                ocultarSidebar();
+            }
+            else{
+                mostrarSidebar();
+            }
         });
     });
-
 
     // Agregar un nuevo canal cuando se envía el formulario
     document.getElementById('addcanals').addEventListener("click", event => {
