@@ -1,11 +1,19 @@
 {%extends "layout.html"%}
 {%block main%}
-<div class="content">
+<div class="content" style="grid-column: span 2;">
     <!-- Contenido principal de la página o parte superior de chat -->
     <div class="barra">
         <h6 id='canal' onclick='menu'></h6>
         <h6 id='integrantes'></h6>
         <button type="button" class='eee' id='salir'>Salir</button>
+    </div>
+    <!-- Seccion de los mensajes -->
+
+    <div class="container-chat">
+        <!--Notificacion de que-->
+        <div class="chatsc" id='chat-list'>
+            <ul id='Join' style='color: white; text-align: center; list-style: none;'></ul>
+        </div>
     </div>
     <!-- Aqui esta el textbox donde se escribe el mensaje xd -->
     <div class="container-writ">
@@ -40,17 +48,7 @@
             </div>
         </div>
     </div>
-    <!-- Seccion de los mensajes -->
 
-    </ul>
-    <div class="container-chat">
-        <!--Notificacion de que-->
-        <div class="chatsc" id='chat-list'>
-            <ul id='Join' style='color: white; text-align: center; list-style: none;'></ul>
-
-        </div>
-
-    </div>
 </div>
 <script src="/static/chat.js"></script>
 {%endblock%}

@@ -50,6 +50,9 @@ function renderMessage(data) {
 }
 var isuser;
 document.addEventListener('DOMContentLoaded', () => {
+    // disable submit
+    const chatForm = document.querySelector('#formwrite')
+
     // Conexión a Websocket
     var socket = io();
     // Canal seleccionado
@@ -90,6 +93,18 @@ document.addEventListener('DOMContentLoaded', () => {
         li.textContent = messageText;
         Join.appendChild(li);
     });
+
+    // desactivar el reload al darle enter al input
+    chatForm.addEventListener('submit', e => {
+        e.preventDefault();
+    });
+
+    document.getElementById("chatwrite").addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            document.getElementById("xddd").click();
+        }
+    });
+
     //!Enviar mensaje de texto 
     document.getElementById('xddd').addEventListener("click", async () => {
         try {
@@ -113,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("Error:", error);
             alert("Error al enviar la imagen: " + error);
         }
+        chatForm.reset();
     });
     //!Enviar Imagen
     document.getElementById('xd').addEventListener("click", async () => {

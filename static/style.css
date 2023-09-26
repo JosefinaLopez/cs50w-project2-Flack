@@ -74,7 +74,9 @@ main {
 .content {
     padding: 0px;
     background-color: #1E0035;
-
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
 }
 
 #search {
@@ -152,20 +154,14 @@ h4 {
 }
 
 .container-chat {
-    height: 73%;
-    top: -4rem;
-    position: relative;
     margin: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .container-writ {
     display: flex;
     justify-content: center;
     gap: 15px;
-    position: relative;
-    top: 31rem;
-    z-index: 9;
     background: #000000a1;
     padding: 1rem;
 }
@@ -286,15 +282,6 @@ h4 {
         left: 18rem;
     }
 
-    .container-chat {
-        height: 50%;
-        top: -4rem;
-    }
-
-    .container-writ {
-        top: 28rem;
-    }
-
     #canalname,
     #chatwrite,
     #username {
@@ -330,15 +317,6 @@ h4 {
 
     .chat-bubble-left {
         left: 6rem;
-    }
-
-    .container-chat {
-        height: 50%;
-        top: -8rem;
-    }
-
-    .container-writ {
-        top: 34rem;
     }
 
     #canalname,
