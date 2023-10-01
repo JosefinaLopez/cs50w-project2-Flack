@@ -40,23 +40,39 @@ function renderMessage(data) {
         // Verificar si el mensaje comienza con '/'
         if (mensaje[1].startsWith('/')) { 
             messageElement.innerText="";
-            chatBubble.style.maxHeight = '300px';
+            chatBubble.style.maxHeight = '100%';
             const imgElement = document.createElement("img");
             imgElement.src = mensaje[1]; // Establecer la ruta como fuente de la imagen
             chatBubble.appendChild(imgElement);
         }
         chatListElement.appendChild(chatBubble);
     });
+    const container = document.getElementById('container');
+    if(container)
+    {
+        container.scrollTop = container.scrollHeight;
+    }
 }
 var isuser;
 document.addEventListener('DOMContentLoaded', () => {
     // Conexión a Websocket
     var socket = io();
-    // Canal seleccionado
-    //const chatlist = document.getElementById('chat-list');
+    const chatForm = document.querySelector('#formwrite')
+
     var canal = localStorage.getItem("CanalSeleccionado");
     let username = localStorage.getItem("username");
     let Join = document.getElementById("Join");
+    // desactivar el reload al darle enter al input
+    chatForm.addEventListener('submit', e => {
+        e.preventDefault();
+    });
+    //habilita la funcion del boton enter para enviar mensajes
+    document.getElementById("chatwrite").addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            document.getElementById("xddd").click();
+        }
+    });
+
     socket.emit("Join_Channel", { canalx: canal, username: username });
     // Evento 'join'
     socket.on('Join_Channel', data => {
@@ -105,14 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Limpiar el campo de entrada de archivos
             mensaje.value = "";
-
-            // Manejar la respuesta del servidor si es necesario
-           // alert("Imagen enviada con éxito.");
-
+            
+            const container = document.getElementById('container');
+            container.scrollTop = container.scrollHeight;
+            
         } catch (error) {
             console.error("Error:", error);
-            alert("Error al enviar la imagen: " + error);
+            alert("Error al enviar el mensaje: " + error);
         }
+        chatForm.reset();
     });
     //!Enviar Imagen
     document.getElementById('xd').addEventListener("click", async () => {
@@ -135,8 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             if (response.ok) {
                 const imagePath = await response.text();
+                const chatListElement = document.getElementById("chat-list");
                 // Manejar la respuesta del servidor si es necesario
-                alert("Imagen enviada con éxito. Ruta de la imagen: " + imagePath);
+                alert("Imagen enviada con éxito");
             } else {
                 throw new Error('Error al enviar la imagen');
             }
@@ -155,7 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Manejar la respuesta del servidor si es necesario
             alert("Imagen enviada con éxito.");
-
+            const container = document.getElementById('container');
+            container.scrollTop = container.scrollHeight;
         } catch (error) {
             console.error("Error:", error);
             alert("Error al enviar la imagen: " + error);
@@ -182,19 +201,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    function mostrarSidebar() {
-        const sidebar = document.querySelector('.sidebar');
-        sidebar.style.display = 'block';
-    }
-
     fetchChannelInfo(canal);
 
     // Emitir 'Listar Mensajes'
     socket.emit('Lista de Mensajes', {
         canal: canal
+        
     });
     document.getElementById('salir').addEventListener("click", event => {
-        mostrarSidebar();
         let username = localStorage.getItem("username");
         socket.emit("Leave_Channel", { 'canal': canal });
         localStorage.removeItem("CanalSeleccionado")
@@ -230,11 +244,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Escuchar el evento "Listar Mensajes" del servidor
     socket.on("Listar Mensajes", renderMessage);
     socket.on("Lista de Mensajes", renderMessage);
-
-    function ocultarSidebar() {
-        const sidebar = document.querySelector('.sidebar');
-        sidebar.style.display = 'none';
-
-    }
     //ocultarSidebar();
 });

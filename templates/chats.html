@@ -1,6 +1,6 @@
 {%extends "layout.html"%}
 {%block main%}
-<div class="content">
+<div class="content" style='grid-column: span 2;'>
     <!-- Contenido principal de la página o parte superior de chat -->
     <div class="barra">
         <h6 id='canal' onclick='menu'></h6>
@@ -43,7 +43,7 @@
     <!-- Seccion de los mensajes -->
 
     </ul>
-    <div class="container-chat">
+    <div class="container-chat" id='container'>
         <!--Notificacion de que-->
         <div class="chatsc" id='chat-list'>
             <ul id='Join' style='color: white; text-align: center; list-style: none;'></ul>

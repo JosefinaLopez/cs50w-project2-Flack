@@ -214,5 +214,13 @@ def handle_list_channel(datas):
     mensajes = list(data['channels'][datas["canal"]]["messages"])  # Obtener una lista con los nombres de los canales
     emit("Lista de Mensajes", {"mensajes": mensajes}, broadcast=True)
 
+def DeleteImg():
+    ruta = './static/img/chat'
+    photos = os.listdir(ruta)
+    for photo in photos:
+        path = os.path.join(ruta,photo)
+        os.remove(path)
+
 if __name__ == '__main__':
+    DeleteImg()    
     socketio.run(app)

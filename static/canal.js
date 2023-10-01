@@ -82,9 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (canalex) {
                 ocultarSidebar();
             }
-            else{
+            else {
                 mostrarSidebar();
             }
+
         });
     });
 

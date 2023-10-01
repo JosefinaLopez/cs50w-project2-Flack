@@ -74,6 +74,8 @@ main {
 .content {
     padding: 0px;
     background-color: #1E0035;
+    grid-template-columns: auto 1fr auto;
+    height: 100vh;
 
 }
 
@@ -152,7 +154,7 @@ h4 {
 }
 
 .container-chat {
-    height: 73%;
+    height: 80%;
     top: -4rem;
     position: relative;
     margin: 0;
@@ -231,7 +233,7 @@ h4 {
 /* Clase para alinear a la izquierda para otros usuarios */
 .chat-bubble-left {
     top: 15px;
-    left: 35rem;
+    left: 52rem;
     background-color: #d4b2ff;
     /* text-align: right;*/
 }
@@ -333,8 +335,8 @@ h4 {
     }
 
     .container-chat {
-        height: 50%;
-        top: -8rem;
+        height: 80%;
+        top: -7.3rem;
     }
 
     .container-writ {
