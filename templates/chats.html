@@ -1,5 +1,6 @@
 {%extends "layout.html"%}
 {%block main%}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <div class="content" style='grid-column: span 2;'>
     <!-- Contenido principal de la página o parte superior de chat -->
     <div class="barra">
@@ -12,10 +13,10 @@
         <form id="formwrite">
             <h6 id='join_usernames' style='color: white;'></h6><input type="text" id='chatwrite' class="form-control"
                 autofocus placeholder="Escribe Algo Aqui..." aria-label="Canal">
-            <input type='button' value='Enviar' id='xddd' class="btn btn-dark">
+            <button type='button' id='xddd' class="btn btn-dark"><i class="bi bi-arrow-right"></i></button>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-                img
+                <i class="bi bi-image-fill"></i>
             </button>
         </form>
     </div>

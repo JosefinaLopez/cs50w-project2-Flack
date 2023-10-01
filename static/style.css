@@ -106,14 +106,13 @@ main {
     margin: 25px;
     border-radius: 30px;
     background: #1E0035;
-    /*width: 200px;
-        margin-left: -3px;*/
 }
 
 #formwrite {
-    flex-wrap: wrap;
     display: flex;
-    gap: 15px;
+    width: 100%;
+    justify-content: center;
+    gap: 5px;
 }
 
 #addcanal:hover {
@@ -155,18 +154,16 @@ h4 {
 
 .container-chat {
     height: 80%;
-    top: -4rem;
+    top: 0;
     position: relative;
     margin: 0;
     overflow-y: scroll;
 }
 
 .container-writ {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    position: relative;
-    top: 31rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
     z-index: 9;
     background: #000000a1;
     padding: 1rem;
@@ -213,7 +210,6 @@ h4 {
 /* Clase para alinear a la derecha si es el usuario actual */
 .chat-bubble-right {
     left: auto;
-    /* right: -35rem;*/
     text-align: left;
 }
 
@@ -235,7 +231,6 @@ h4 {
     top: 15px;
     left: 52rem;
     background-color: #d4b2ff;
-    /* text-align: right;*/
 }
 
 .username {
@@ -293,10 +288,6 @@ h4 {
         top: -4rem;
     }
 
-    .container-writ {
-        top: 28rem;
-    }
-
     #canalname,
     #chatwrite,
     #username {
@@ -335,12 +326,14 @@ h4 {
     }
 
     .container-chat {
-        height: 80%;
-        top: -7.3rem;
+        height: 77%;
+        top: -0.3rem;
     }
 
     .container-writ {
-        top: 34rem;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
     }
 
     #canalname,
