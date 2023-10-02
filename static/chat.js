@@ -112,18 +112,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const user_ms = document.getElementById("join_usernames").innerText;
             const canal = localStorage.getItem("CanalSeleccionado");
             let mensaje = document.getElementById("chatwrite").value;
-            // Enviar el nombre de la imagen como mensaje al servidor
-            socket.emit("Mensaje Nuevo", {
-                username: user_ms,
-                mensaje: mensaje,
-                canale: canal,
-            });
-
-            // Limpiar el campo de entrada de archivos
-            mensaje.value = "";
-            
-            const container = document.getElementById('container');
-            container.scrollTop = container.scrollHeight;
+            if(file.name.includes(" "))
+            {
+                alert("Renombre la imagen a un nombre sin espacios y corto");
+            }
+            else if(mensaje)
+            {
+                // Enviar el nombre de la imagen como mensaje al servidor
+                socket.emit("Mensaje Nuevo", {
+                    username: user_ms,
+                    mensaje: mensaje,
+                    canale: canal,
+                });
+                // Limpiar el campo de entrada de archivos
+                mensaje.value = "";
+                
+                const container = document.getElementById('container');
+                container.scrollTop = container.scrollHeight;
+            }
+            else{
+                alert("Escriba algun mensaje");
+            }
             
         } catch (error) {
             console.error("Error:", error);
@@ -142,10 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const imgName = '/static/img/chat/'+ file.name; // Obtener el nombre de la imagen
 
             //!Creo un objeto para enviar la imagen al servidor
-            // Creo un objeto FormData para enviar la imagen al servidor
             const formData = new FormData();
             formData.append('image', file);
-
+        
             const response = await fetch('/upload', {
                 method: 'POST',
                 body: formData
@@ -160,21 +168,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             // Limpiar el campo de entrada de archivos
             fileInput.value = "";
-
-            //! Enviar el nombre de la imagen como mensaje al servidor
-            socket.emit("Mensaje Nuevo", {
-                username: user_ms,
-                mensaje: imgName,
-                canale: canal,
-            });
-
-            // Limpiar el campo de entrada de archivos
-            fileInput.value = "";
-
-            // Manejar la respuesta del servidor si es necesario
-            alert("Imagen enviada con éxito.");
-            const container = document.getElementById('container');
-            container.scrollTop = container.scrollHeight;
+            if (file.name) {
+                //! Enviar el nombre de la imagen como mensaje al servidor
+                socket.emit("Mensaje Nuevo", {
+                    username: user_ms,
+                    mensaje: imgName,
+                    canale: canal,
+                });
+    
+                // Limpiar el campo de entrada de archivos
+                fileInput.value = "";
+    
+                // Manejar la respuesta del servidor si es necesario
+                alert("Imagen enviada con éxito.");
+                const container = document.getElementById('container');
+                container.scrollTop = container.scrollHeight;
+            }
+            else{
+                alert("Seleccione una Imagen.")
+            }
         } catch (error) {
             console.error("Error:", error);
             alert("Error al enviar la imagen: " + error);

@@ -157,6 +157,8 @@ h4 {
     top: 0;
     position: relative;
     margin: 0;
+}
+.container-chat:hover{
     overflow-y: scroll;
 }
 
@@ -165,7 +167,7 @@ h4 {
     width: 100%;
     bottom: 0;
     z-index: 9;
-    background: #000000a1;
+    background: #000000;
     padding: 1rem;
 }
 
@@ -251,10 +253,13 @@ h4 {
 }
 
 #salirx {
-    position: relative;
-    top: 14rem;
+    position: fixed;
+    bottom:0;
     left: 3rem;
-
+}
+#canalnamelist:hover{
+    overflow-y: scroll;
+    height: 50%;
 }
 
 /* Media query para pantallas medianas (tablets) */

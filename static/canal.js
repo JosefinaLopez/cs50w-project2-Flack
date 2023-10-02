@@ -54,19 +54,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     var existentes = []
-    //Recolecta la info del servidor
     socket.on('Lista Canal', data => {
         const canals = data.canales;
         const canallist = document.getElementById("canalnamelist");
         canallist.innerHTML = "";
-        console.log(data)
-        //print(canals)
+
         canals.forEach(canal => {
             const li = document.createElement("li");
             canal_selectt = canal;
             li.classList.add("option");
-            li.textContent = canal;
-            existentes.push(canal)
+
+            // Crear el elemento de icono
+            const icono = document.createElement("i");
+            icono.classList.add("bi", "bi-wechat"); 
+            icono.style.fontSize = "1.5rem";
+            li.appendChild(icono); // Añadir el icono al elemento <li>
+
+            // Crea el elemento de texto para el nombre del canal
+            const textoCanal = document.createTextNode("   " + canal); 
+            li.appendChild(textoCanal); 
+
+            existentes.push(canal);
 
             li.addEventListener("click", (event) => {
                 let canalex = localStorage.setItem("CanalSeleccionado", canal);
@@ -74,20 +82,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 event.preventDefault();
                 console.log("Canal seleccionado: " + canal);
                 window.location.href = '/Channels/Chat/' + canal;
-
             });
+
             canallist.appendChild(li);
             let canalex = localStorage.getItem("CanalSeleccionado", canal);
 
             if (canalex) {
                 ocultarSidebar();
-            }
-            else {
+            } else {
                 mostrarSidebar();
             }
-
         });
     });
+
 
     // Agregar un nuevo canal cuando se envía el formulario
     document.getElementById('addcanals').addEventListener("click", event => {
