@@ -112,11 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const user_ms = document.getElementById("join_usernames").innerText;
             const canal = localStorage.getItem("CanalSeleccionado");
             let mensaje = document.getElementById("chatwrite").value;
-            if(file.name.includes(" "))
-            {
-                alert("Renombre la imagen a un nombre sin espacios y corto");
-            }
-            else if(mensaje)
+            if(mensaje)
             {
                 // Enviar el nombre de la imagen como mensaje al servidor
                 socket.emit("Mensaje Nuevo", {
@@ -162,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const imagePath = await response.text();
                 const chatListElement = document.getElementById("chat-list");
                 // Manejar la respuesta del servidor si es necesario
-                alert("Imagen enviada con éxito");
+               // alert("Imagen enviada con éxito");
             } else {
                 throw new Error('Error al enviar la imagen');
             }

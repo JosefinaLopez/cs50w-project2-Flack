@@ -157,8 +157,6 @@ h4 {
     top: 0;
     position: relative;
     margin: 0;
-}
-.container-chat:hover{
     overflow-y: scroll;
 }
 
@@ -331,7 +329,7 @@ h4 {
     }
 
     .container-chat {
-        height: 77%;
+        height: 70%;
         top: -0.3rem;
     }
 
